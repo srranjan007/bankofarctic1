@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: corecrudservice
+#    cloud:
+#        config:
+#            uri: https://rajconfig.mypivotal.net/
+#            uri: http://localhost:8888
+    
+    
