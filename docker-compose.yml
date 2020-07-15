@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 services:
   mysqldb:
     image: mysql:latest
@@ -12,7 +12,7 @@ services:
       - mydockernet
 
   core:
-    image: corecrudol1img
+    image: srranjan007/corecrudol1img
     container_name: corecrudol1container
     depends_on:
       - mysqldb
