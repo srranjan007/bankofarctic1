@@ -1,0 +1,331 @@
+Attaching to corecrudol1container, mysqldb
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m Launching defaultServer (Open Liberty 20.0.0.7/wlp-1.0.42.cl200720200625-0300) on Eclipse OpenJ9 VM, version 1.8.0_252-b09 (en_US)
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKE0001I: The server defaultServer has been launched.
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKG0093A: Processing configuration drop-ins resource: /opt/ol/wlp/usr/servers/defaultServer/configDropins/defaults/keystore.xml
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKG0093A: Processing configuration drop-ins resource: /opt/ol/wlp/usr/servers/defaultServer/configDropins/defaults/open-default-port.xml
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKZ0058I: Monitoring dropins for applications.
+[36mcorecrudol1container |[0m   .   ____          _            __ _ _
+[36mcorecrudol1container |[0m  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[36mcorecrudol1container |[0m ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[36mcorecrudol1container |[0m  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[36mcorecrudol1container |[0m   '  |____| .__|_| |_|_| |_\__, | / / / /
+[36mcorecrudol1container |[0m  =========|_|==============|___/=/_/_/_/
+[36mcorecrudol1container |[0m  :: Spring Boot ::        (v2.2.2.RELEASE)
+[36mcorecrudol1container |[0m 2020-07-14 22:11:34.351  INFO 1 --- [ecutor-thread-2] com.mypoc.rest.MyApp                     : Starting MyApp on f5741d1a85f7 with PID 1 (/opt/ol/wlp/usr/servers/defaultServer/dropins/spring/thin-corecrudol1svc-0.0.1.jar started by default in /opt/ol/wlp/output/defaultServer)
+[36mcorecrudol1container |[0m 2020-07-14 22:11:34.358  INFO 1 --- [ecutor-thread-2] com.mypoc.rest.MyApp                     : No active profile set, falling back to default profiles: default
+[36mcorecrudol1container |[0m 2020-07-14 22:11:37.556  INFO 1 --- [ecutor-thread-2] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[36mcorecrudol1container |[0m 2020-07-14 22:11:37.791  INFO 1 --- [ecutor-thread-2] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 193ms. Found 1 JPA repository interfaces.
+[36mcorecrudol1container |[0m 2020-07-14 22:11:38.837  INFO 1 --- [ecutor-thread-2] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKT0016I: Web application available (default_host): http://f5741d1a85f7:9080/
+[36mcorecrudol1container |[0m 2020-07-14 22:11:39.576  INFO 1 --- [ecutor-thread-4] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4980 ms
+[36mcorecrudol1container |[0m 2020-07-14 22:11:40.527  INFO 1 --- [ecutor-thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+[36mcorecrudol1container |[0m 2020-07-14 22:11:40.632 ERROR 1 --- [ecutor-thread-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:353) ~[HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:562) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158) [spring-jdbc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116) [spring-jdbc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79) [spring-jdbc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:324) [spring-jdbc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.jdbc.EmbeddedDatabaseConnection.isEmbedded(EmbeddedDatabaseConnection.java:120) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateDefaultDdlAutoProvider.getDefaultDdlAuto(HibernateDefaultDdlAutoProvider.java:42) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.lambda$getVendorProperties$1(HibernateJpaConfiguration.java:130) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration$$Lambda$483/0000000000000000.get(Unknown Source) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings.getDdlAuto(HibernateSettings.java:41) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties$$Lambda$484/0000000000000000.get(Unknown Source) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[33mmysqldb    |[0m 2020-07-14 22:11:20+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.21-1debian10 started.
+[33mmysqldb    |[0m 2020-07-14 22:11:21+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+[33mmysqldb    |[0m 2020-07-14 22:11:21+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.21-1debian10 started.
+[33mmysqldb    |[0m 2020-07-14 22:11:21+00:00 [Note] [Entrypoint]: Initializing database files
+[33mmysqldb    |[0m 2020-07-14T22:11:21.580029Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+[33mmysqldb    |[0m 2020-07-14T22:11:21.580138Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.21) initializing of server in progress as process 42
+[33mmysqldb    |[0m 2020-07-14T22:11:21.595902Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[33mmysqldb    |[0m 2020-07-14T22:11:22.437300Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+[33mmysqldb    |[0m 2020-07-14T22:11:24.277402Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+[33mmysqldb    |[0m 2020-07-14 22:11:27+00:00 [Note] [Entrypoint]: Database files initialized
+[33mmysqldb    |[0m 2020-07-14 22:11:27+00:00 [Note] [Entrypoint]: Starting temporary server
+[33mmysqldb    |[0m 2020-07-14T22:11:28.243842Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+[33mmysqldb    |[0m 2020-07-14T22:11:28.243951Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 89
+[33mmysqldb    |[0m 2020-07-14T22:11:28.286515Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[33mmysqldb    |[0m 2020-07-14T22:11:28.861512Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+[33mmysqldb    |[0m 2020-07-14T22:11:29.138751Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+[33mmysqldb    |[0m 2020-07-14T22:11:29.407211Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+[33mmysqldb    |[0m 2020-07-14T22:11:29.407588Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+[33mmysqldb    |[0m 2020-07-14T22:11:29.409813Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+[33mmysqldb    |[0m 2020-07-14T22:11:29.464443Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.21'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+[33mmysqldb    |[0m 2020-07-14 22:11:29+00:00 [Note] [Entrypoint]: Temporary server started.
+[33mmysqldb    |[0m Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+[33mmysqldb    |[0m Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+[33mmysqldb    |[0m Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+[33mmysqldb    |[0m Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+[33mmysqldb    |[0m 2020-07-14 22:11:34+00:00 [Note] [Entrypoint]: Creating database corecruddb
+[33mmysqldb    |[0m 
+[33mmysqldb    |[0m 2020-07-14 22:11:35+00:00 [Note] [Entrypoint]: Stopping temporary server
+[33mmysqldb    |[0m 2020-07-14T22:11:35.050784Z 11 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.21).
+[33mmysqldb    |[0m 2020-07-14T22:11:36.807654Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.21)  MySQL Community Server - GPL.
+[33mmysqldb    |[0m 2020-07-14 22:11:37+00:00 [Note] [Entrypoint]: Temporary server stopped
+[33mmysqldb    |[0m 
+[33mmysqldb    |[0m 2020-07-14 22:11:37+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+[33mmysqldb    |[0m 
+[33mmysqldb    |[0m 2020-07-14T22:11:37.520788Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+[33mmysqldb    |[0m 2020-07-14T22:11:37.522591Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.21) starting as process 1
+[33mmysqldb    |[0m 2020-07-14T22:11:37.540234Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[33mmysqldb    |[0m 2020-07-14T22:11:37.920542Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+[33mmysqldb    |[0m 2020-07-14T22:11:38.137726Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+[33mmysqldb    |[0m 2020-07-14T22:11:38.288717Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+[33mmysqldb    |[0m 2020-07-14T22:11:38.289220Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+[33mmysqldb    |[0m 2020-07-14T22:11:38.295150Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+[33mmysqldb    |[0m 2020-07-14T22:11:38.345190Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.21'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineDdlAuto(HibernateProperties.java:136) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.getAdditionalProperties(HibernateProperties.java:102) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineHibernateProperties(HibernateProperties.java:94) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.getVendorProperties(HibernateJpaConfiguration.java:132) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.entityManagerFactory(JpaBaseConfiguration.java:133) [spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$136/0000000000000000.getObject(Unknown Source) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) [spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) [spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) [spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at com.mypoc.rest.MyApp.main(MyApp.java:11) [thin-corecrudol1svc-0.0.1.jar:na]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.app.manager.springboot.internal.SpringBootRuntimeContainer.lambda$invokeSpringMain$6(SpringBootRuntimeContainer.java:137) [com.ibm.ws.app.manager.springboot_1.0.42.jar:na]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.app.manager.springboot.internal.SpringBootRuntimeContainer$$Lambda$9/0000000000000000.run(Unknown Source) [com.ibm.ws.app.manager.springboot_1.0.42.jar:na]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:239) [com.ibm.ws.threading_1.1.42.jar:na]
+[36mcorecrudol1container |[0m 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.Thread.run(Thread.java:821) [na:1.8.0_252]
+[36mcorecrudol1container |[0m Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	... 61 common frames omitted
+[36mcorecrudol1container |[0m Caused by: java.net.ConnectException: Connection refused (Connection refused)
+[36mcorecrudol1container |[0m 	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.Socket.connect(Socket.java:607) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	... 64 common frames omitted
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m 2020-07-14 22:11:40.820  INFO 1 --- [ecutor-thread-2] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+[36mcorecrudol1container |[0m 2020-07-14 22:11:41.753  INFO 1 --- [ecutor-thread-2] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+[36mcorecrudol1container |[0m 2020-07-14 22:11:42.141  INFO 1 --- [ecutor-thread-2] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[36mcorecrudol1container |[0m 2020-07-14 22:11:42.690  INFO 1 --- [ecutor-thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+[36mcorecrudol1container |[0m 2020-07-14 22:11:42.698 ERROR 1 --- [ecutor-thread-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:353) ~[HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:562) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.4.1.jar:na]
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:175) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) [hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) [spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) [spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) [spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$136/0000000000000000.getObject(Unknown Source) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) [spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) [spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) [spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) [spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at com.mypoc.rest.MyApp.main(MyApp.java:11) [thin-corecrudol1svc-0.0.1.jar:na]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.app.manager.springboot.internal.SpringBootRuntimeContainer.lambda$invokeSpringMain$6(SpringBootRuntimeContainer.java:137) [com.ibm.ws.app.manager.springboot_1.0.42.jar:na]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.app.manager.springboot.internal.SpringBootRuntimeContainer$$Lambda$9/0000000000000000.run(Unknown Source) [com.ibm.ws.app.manager.springboot_1.0.42.jar:na]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:239) [com.ibm.ws.threading_1.1.42.jar:na]
+[36mcorecrudol1container |[0m 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.Thread.run(Thread.java:821) [na:1.8.0_252]
+[36mcorecrudol1container |[0m Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	... 60 common frames omitted
+[36mcorecrudol1container |[0m Caused by: java.net.ConnectException: Connection refused (Connection refused)
+[36mcorecrudol1container |[0m 	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.net.Socket.connect(Socket.java:607) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+[36mcorecrudol1container |[0m 	... 63 common frames omitted
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m 2020-07-14 22:11:42.707  WARN 1 --- [ecutor-thread-2] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata : Communications link failure
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[36mcorecrudol1container |[0m 2020-07-14 22:11:42.758  WARN 1 --- [ecutor-thread-2] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKT0017I: Web application removed (default_host): http://f5741d1a85f7:9080/
+[36mcorecrudol1container |[0m 2020-07-14 22:11:42.859  INFO 1 --- [ecutor-thread-2] ConditionEvaluationReportLoggingListener : 
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[36mcorecrudol1container |[0m 2020-07-14 22:11:42.864 ERROR 1 --- [ecutor-thread-2] o.s.boot.SpringApplication               : Application run failed
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$136/0000000000000000.getObject(Unknown Source) ~[na:na]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at com.mypoc.rest.MyApp.main(MyApp.java:11) [thin-corecrudol1svc-0.0.1.jar:na]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.app.manager.springboot.internal.SpringBootRuntimeContainer.lambda$invokeSpringMain$6(SpringBootRuntimeContainer.java:137) [com.ibm.ws.app.manager.springboot_1.0.42.jar:na]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.app.manager.springboot.internal.SpringBootRuntimeContainer$$Lambda$9/0000000000000000.run(Unknown Source) [com.ibm.ws.app.manager.springboot_1.0.42.jar:na]
+[36mcorecrudol1container |[0m 	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:239) [com.ibm.ws.threading_1.1.42.jar:na]
+[36mcorecrudol1container |[0m 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+[36mcorecrudol1container |[0m 	at java.lang.Thread.run(Thread.java:821) [na:1.8.0_252]
+[36mcorecrudol1container |[0m Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:175) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+[36mcorecrudol1container |[0m 	... 27 common frames omitted
+[36mcorecrudol1container |[0m Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.9.Final.jar:5.4.9.Final]
+[36mcorecrudol1container |[0m 	... 44 common frames omitted
+[36mcorecrudol1container |[0m 
+[36mcorecrudol1container |[0m [ERROR   ] CWWKZ0002E: An exception occurred while starting the application thin-corecrudol1svc-0.0.1. The exception message was: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKF0012I: The server installed the following features: [el-3.0, jsp-2.3, servlet-4.0, springBoot-2.0, ssl-1.0, transportSecurity-1.0, websocket-1.1].
+[36mcorecrudol1container |[0m [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 19.971 seconds.
