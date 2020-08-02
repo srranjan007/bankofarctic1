@@ -1,0 +1,37 @@
+version: "3"
+services:
+  mysqldb:
+    image: mysql:latest
+    container_name: mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssword
+      - MYSQL_DATABASE=corecruddb
+    ports: 
+      - "3306:3306"
+    networks:
+      - mydockernet
+
+# Use Spring Boot with Tomcat embedded image 
+  core1:
+    image: srranjan007/corecrudsb1img
+    container_name: corecrudsb1container
+    depends_on:
+      - mysqldb
+#port assignment in line with that declared for the embedded tomcat in application.yml
+    ports:
+      - "9091:9091"
+    networks:
+      - mydockernet
+# Use  IBM WAS Liberty image (corecrudol1img).
+  core2:
+    image: srranjan007/corecrudol1img
+    container_name: corecrudol1container
+    depends_on:
+      - mysqldb
+#Port assignment in line with that for  IBM WAS Liberty server (default 9080)
+    ports:
+      - "9080:9080"
+    networks:
+      - mydockernet
+networks:
+   mydockernet:

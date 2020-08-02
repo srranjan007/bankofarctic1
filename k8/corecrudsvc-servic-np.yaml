@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: corecrudol1svc
+  labels:
+    app: corecrudol1svc
+    lab: k8-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: corecrudol1svc
+  template:
+    metadata:
+      labels:
+        app: corecrudol1svc
+        lab: corecrudol1svc
+    spec:
+      containers:
+      - name: corecrudol1container
+        image: us.icr.io/srranjan007/corecrudol1img:V1
+        ports:
+        - name: http
+          containerPort: 9091
