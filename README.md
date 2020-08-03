@@ -1,88 +1,71 @@
-A POC for Spring Boot Rest microservice with MySQL backen hosted on Open Liberty Server
+The goal of this Java (Spring Boot) code base is to do a simple POC which uses Restful microservice and then test the functionality with IBM OpenLiberty server (as well as "pure" Spring Boot with embedded Tomcat) in a cloud-native fashion. The application will be later containarized as docker images and deployed and tested on OpenShift. 
 
+The application code base goes well beyond a typical Hello World. The usual spectrum of CRUD methods - GET, POST, PUT, DELETE - are implemented, the usual serialization/deserialization  between JSON and DTO takes place, and the data is persisted in a MySQL database. 
+The idea is to keep it simple to bring forth the technical scaffolding clearly and yet serve as a starting point for further, more advanced POC/POT.  
 
-(1)
- Pure Spring boot with MySQL backend, no containers, no orchestration.
+To keep entire documentation modular, this page only deals with build of Spring Boo/MySQL application into a jar and its test on localhost, without entering into any aspect of docker or OpenShift or Kubernetes.
+The steps can be carried out on Windows desktop or Linux environment after cloning the code. The requirements are the existence of JDK 8 (or higher) and maven install.
+You also need a MySQL database to connect to. And you need to create a database with a particular name "corecruddb", which is hardcoded in Spring boot application.yml.
+
+The codebase cloned should not need any change with one caveat. The application.yml files hard-codes the MySQL host name as "mysqldb". This was done to make it and the  created docker images friendly for Docker deploy (using docker-compose) or OpenShift deploy or K8 deploy.
+
+As your MySQL instance might have some different hostname (like "localhost"), you might need to make this change to application.yml. However, if you can take the risk of putting mysqldb in your /etc/hosts, this change might not be required. 
+
+If you wish to go beyond testing with Spring Boot jar, and create docker images and test it with docker images, you need to look into the companion README in the "containers" folder.
+However, this programmer has uploaded the built docker images on public docker hub also, and you can directly pull from there and test it without doing the Java build outlined on this page.
+
+Beyond docker images, if you wish to test on OpenShift, you need to navigate to the osms folder (os for openshift, ms for minishift) for the companion README and the associated config files. For openshift/minishift deploy, you can circumvent the the build described on this page and directly work with the images pulled from the public docker hub repository. 
+
+Pure Spring boot with MySQL backend, no containers, no orchestration:
 
 The code base implements a rest service with  5 archetypal operations: GET(a.k.a retrieve),GET ALL, POST (a.k.a create), PUT(a.k.a update or modify),  DELETE.
 The opinionated Spring Boot Stack is used. The entier code is a backend services code. No GUI component.
 
-To test the code quickly for the CRUD operations, we shall use curl. Alternatively, GUI best tools like soanUI or Postman or Insomnia can be used. 
-
-One dependency of the services code is that a MySQL backend database with the name corecruddb should be present.
-
 Once you clone the code and build it, you need to start the MySQL server and create a database "corecruddb" before starting the application jar itself. 
-
-This portion of the exercise can be carried out in either Windows or Linux environments, the one condition being that Java runtime and a maven installation should be available. 
 
 Run the following from the base dir of the project (In my case, it is /home/rranjan/bankofarctic1):
 mvn clean package
+
+After that, set up your Mysql instance with a database "corecruddb" which can be accessed by the user "root" using the password "p@ssword".
+On this page, we are avoiding any docker operation. But in case you are already in a docker environment and you wish to avoid a full-fledged MySql install and instead just go a short-cut Mysql docker 
+set up, you can use the following 3 commands:
 docker-compose -f containers/docker-compose-onlyMySQL.yml up
 mysql –hlocalhost  -p3306 -uroot -pp@ssword
 CREATE DATABASE corecruddb;
-java –jar target/corecrudol1svc-0.0.1.jar
-Control-C to kill the above Tomcat server.
 
-If you wish, you can also kill your mysql container by first stopping it:
+Once Mysql instance with database corecruddb set up, you can start the application and test it.
+java –jar target/corecrudol1svc-0.0.1.jar
+Control-C when you wish to stop your app (killing the above Tomcat server).
+
+If you have a docker MySql, you can also kill your mysql container by first stopping it:
 docker stop mysqldb
 docker rm mysqldb
-
-(2) Enter Container (docker)
-
-Now let us move towards docker based application boot. 
-First, we need to revert back mysql connection string from localhost to mysqldb hostname. So, we do this little change to application.yml and rebuild the application jar.
-mvn clean package
-
-Now, let us create docker images, one each for pure SpringBoot application (embedded Tomcat) and another an IBM WAS Liberty server encapsulating this Spring Boot application:
-
-cp containers/Dockerfile_sb Dockerfile
-docker build -t srranjan007/corecrudsb1img . 
-The above builds a pure sprinb boot docker image with embedded tomcat.
-
-The following 2 commands build a spring boot application hosted on WAS liberty server.
-
-cp containers/Dockerfile_ol Dockerfile
-docker build -t srranjan007/corecrudol1img . 
-
-The following command will show that both your images are ready:
-rranjan@ubuntu:~/bankofarctic1$ docker images
-REPOSITORY                    TAG                       IMAGE ID            CREATED              SIZE
-srranjan007/corecrudol1img    latest                    d88da0095836        About a minute ago   774MB
-<none>                        <none>                    5e5b06e73c75        2 minutes ago        816MB
-srranjan007/corecrudsb1img    latest                    2cac5ec41782        6 minutes ago        126MB
-
-I remove the Dockerfile with a purpose. If there is a Dockerfile in the base dir of the project source code, Openshift might pick it up for image creation instead of using source code, 
-even when it is not what you want. 
-rm Dockerfile
-
-Now, let us boot up the entire system. Although both pure spring boot and the liberty profile services are not required simultaneously, it will not harm even if they coexist. In one case, for pure
-spring boot, the service port is 9091 (dictated by application.yml) whereas for liberty server, it is the default WAS port of 9080.
-docker-compose -f containers/docker-compose.yml up
-
-Now let us send some requests to Tomcat and some to Liberty server (as both are connected to the same MySQLDB instance in this case, they will show changes done by each).
+ 
+While your application is still running, you can test the functionality:
 
 curl http://localhost:9091/clients
-curl http://localhost:9080/clients
 
 curl -X POST -H 'Content-Type: application/json' -d '{"id":1,"name":"Rajiv Ranjan","phone":"1111111111","address":"315 Front St","email":"rajiv@bankofarctic.com","balance":"111"}' http://localhost:9091/clients
-
-curl -X POST -H 'Content-Type: application/json' -d '{"id":2,"name":"Julius Caesar","phone":"2222222222","address":"2 Main St","email":"julius@bankofarctic.com","balance":"222"}' http://localhost:9080/clients
+curl -X POST -H 'Content-Type: application/json' -d '{"id":2,"name":"Julius Caesar","phone":"2222222222","address":"2 Main St","email":"julius@bankofarctic.com","balance":"222"}' http://localhost:9091/clients
 curl -X POST -H 'Content-Type: application/json' -d '{"id":3,"name":"Mark Antony","phone":"3333333333","address":"3  Main St","email":"mark@bankofarctic.com","balance":"333"}' http://localhost:9091/clients
 curl http://localhost:9091/clients
-curl http://localhost:9080/clients
-curl -X PUT -H 'Content-Type: application/json' -d '{"id":3,"name":"Mark Antony","phone":"3333333333","address":"9  Fantasy Blvd","email":"mark99@bankofarctic.com","balance":"9999"}' http://localhost:9080/clients/3
+curl -X DELETE http://localhost:9091/clients/2
+curl -X PUT -H 'Content-Type: application/json' -d '{"id":3,"name":"Mark Antony","phone":"3333333333","address":"9  Fantasy Blvd","email":"mark99@bankofarctic.com","balance":"9999"}' http://localhost:9091/clients/3
 curl http://localhost:9091/clients
-curl http://localhost:9080/clients
 curl http://localhost:9091/clients/3
 
+In case you are doing curl on Windows, there might be a need to escape the quote symbols. If you are a copy-paste master like me, I am putting Windows-friendly curl commands below for your copy-paste pleasure:
+On windows:
+curl http://localhost:9091/clients
+curl -X POST -H "Content-Type: application/json" -d "{\"id\":1,\"name\":\"Rajiv Ranjan\",\"phone\":\"1111111111\",\"address\":\"315 Front St\",\"email\":\"rajiv@bankofarctic.com\",\"balance\":\"111\"}" http://localhost:9091/clients
 
-The 2 docker images have been uploaded to public docker hub, in case you don't wish to go into the hassle of managing the source code and just wish to use docker images directly in a docker friendly platform.
-Of course, you will get mysql also at docker hub (in case you use docker-compose above, that guy will anyway take care of that for you). 
+curl -X POST -H "Content-Type: application/json" -d "{\"id\":2,\"name\":\"Julius Caesar\",\"phone\":\"2222222222\",\"address\":\"2 Main St\",\"email\":\"julius@bankofarctic.com\",\"balance\":\"222\"}" http://localhost:9091/clients
+curl -X POST -H "Content-Type: application/json" -d "{\"id\":3,\"name\":\"Mark Antony\",\"phone\":\"3333333333\",\"address\":\"3  Main St\",\"email\":\"mark@bankofarctic.com\",\"balance\":\"333\"}" http://localhost:9091/clients
+curl http://localhost:9091/clients
+curl -X PUT -H "Content-Type: application/json" -d "{\"id\":3,\"name\":\"Mark Antony\",\"phone\":\"3333333333\",\"address\":\"9  Fantasy Blvd\",\"email\":\"mark99@bankofarctic.com\",\"balance\":\"9999\"}" http://localhost:9091/clients/3
+curl http://localhost:9091/clients
+curl http://localhost:9091/clients/3
+curl –X DELETE http://localhost:9091/clients/2
+curl http://localhost:9091/clients
 
-docker.io/srranjan007/corecrudol1img
-docker.io/srranjan007/corecrudsb1img
-
-Next, we shall try to run the application from OpenShift and/or any other PaaS platform so that services can be accessed from a public IP.
-
-(3) Enter PaaS
-
+Move to conainers folder and/or osms folders for docker and openshift related stuff, if and when you wish.
