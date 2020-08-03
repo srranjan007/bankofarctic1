@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: corecrudol1-deployment
+  labels:
+    app: corecrudol1
+spec:
+  selector:
+    matchLabels:
+      app: corecrudol1
+  template:
+    metadata:
+      labels:
+        app: corecrudol1
+    spec:
+      containers:
+      - name: corecrudol1-container
+        image: docker.io/srranjan007/corecrudol1img
+        ports:
+        - containerPort: 9080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: corecrudol1-service
+spec:
+  selector:
+    app: corecrudol1
+  ports:
+  - protocol: TCP
+    port: 9080
+---
+apiVersion: v1
+kind: Route
+metadata:
+  name: corecrudol1-route
+spec:
+  to:
+    kind: Service
+    name: corecrudol1-service
