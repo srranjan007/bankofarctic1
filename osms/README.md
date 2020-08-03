@@ -86,3 +86,48 @@ curl http://corecrudol1-route-projarctic.192.168.42.14.nip.io/clients/3
 
 
 The above tests should prove to us that both our HTTP bartenders, the Tomcat and the Liberty servers, are serving us the JSON goblets nicely.
+
+
+
+Deployment and test on Public OpenShift:
+
+If you manage to get a RedHat public OpenShift subscription, evaluation or otherwise, you can repeat the minishift steps for OpenShift also. And 
+the routes configured will give you public URLs which can be invoked by anybody on the internet. 
+
+
+oc new-project bankofarctic
+
+oc login --server=https://api.pro-us-east-1.openshift.com --token=<Token that you will copy from your OpenShift Console login page>
+
+Go on to create a MySql service with service name of mysqldb and root password of p@ssword directly from OpenShift console. Also, during 
+this creation itself, ensure that you override the default sample database with your own of "corecruddb" so that you don't have to indulge
+in the kludge of remote login in the mysql oc pod described above for minishift (actually we could have done this simpler thing for minishift 
+also, but we missed the opportunity and hence had to log inside the pod unnecessarily above. )
+
+
+oc apply -f myk8_ol.yaml
+oc apply -f myk8_sb.yaml
+
+
+oc get routes
+NAME                HOST/PORT                                                             PATH   SERVICES              PORT    TERMINATION   WILDCARD
+corecrudol1-route   corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com          corecrudol1-service   <all>                 None
+corecrudsb1-route   corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com          corecrudsb1-service   <all>                 None
+
+curl http://corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+
+curl http://corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+
+curl -X POST -H 'Content-Type: application/json' -d '{"id":1,"name":"Rajiv Ranjan","phone":"1111111111","address":"315 Front St","email":"rajiv@bankofarctic.com","balance":"111"}' http://corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+
+curl -X POST -H 'Content-Type: application/json' -d '{"id":2,"name":"Julius Caesar","phone":"2222222222","address":"2 Main St","email":"julius@bankofarctic.com","balance":"222"}' http://corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+curl -X POST -H 'Content-Type: application/json' -d '{"id":3,"name":"Mark Antony","phone":"3333333333","address":"3  Main St","email":"mark@bankofarctic.com","balance":"333"}' http://corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+curl http://corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+curl http://corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+curl -X DELETE http://corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients/2
+curl -X PUT -H 'Content-Type: application/json' -d '{"id":3,"name":"Mark Antony","phone":"3333333333","address":"9  Fantasy Blvd","email":"mark99@bankofarctic.com","balance":"9999"}' http://corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients/3
+curl http://corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+curl http://corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+curl http://corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients3
+
+
