@@ -1,3 +1,15 @@
+[
+Poscript:
+The Restful Service implementation and deployment on RedHat OpenShift public cloud will be available on the following public URLs for the month 
+of Aug. 2020 for anybody to invoke directly using curl or any other client tool:
+http://corecrudsb1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+http://corecrudol1-route-bankofarctic.b9ad.pro-us-east-1.openshiftapps.com/clients
+
+The details of calls are given below.  The Get call can also be invoked on a JSON friendly browser like Chrome. But for other mutator calls, you will need curl or other tool. You are free to add/modifiy/delete any new records using either of the 2 URLs above, the first is pure Spring Boot (embedded Tomcat) while the later is assembled with IBM Open Liberty Profile server. But please don't delete the existing 2 records so that anybody invoking on Chrome gets something in the browser.
+If you do add new records, please do only a few of them, don't bombard it with a large number.
+
+]
+
 The goal of this Java (Spring Boot) code base is to do a simple POC which uses Restful microservice and then test the functionality with IBM OpenLiberty server (as well as "pure" Spring Boot with embedded Tomcat) in a cloud-native fashion. The application will be later containarized as docker images and deployed and tested on OpenShift. 
 
 The application code base goes well beyond a typical Hello World. The usual spectrum of CRUD methods - GET, POST, PUT, DELETE - are implemented, the usual serialization/deserialization  between JSON and DTO takes place, and the data is persisted in a MySQL database. 
